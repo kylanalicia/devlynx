@@ -1,9 +1,13 @@
-import { getPullRequestDiff, postReviewComment } from "@/module/github/lib/github";
+import {
+  getPullRequestDiff,
+  postReviewComment,
+} from "@/module/github/lib/github";
 import { retrieveContext } from "@/module/ai/lib/rag";
 import { generateText } from "ai";
 import { google } from "@ai-sdk/google";
 import prisma from "@/lib/db";
 import { inngest } from "../client";
+import { success } from "zod";
 
 export const generateReview = inngest.createFunction(
   { id: "generate-review", concurrency: 5 },
@@ -74,10 +78,32 @@ Format your response in markdown.`;
         model: google("gemini-2.5-flash"),
         prompt,
       });
-      return text
+      return text;
     });
-    await step.run("post-comment", async ()=>{
-        await postReviewComment(token, owner, repo, prNumber, review)
-    })
+    await step.run("post-comment", async () => {
+      await postReviewComment(token, owner, repo, prNumber, review);
+    });
+
+    await step.run("save-review", async () => {
+      const repository = await prisma.repository.findFirst({
+        where: {
+          owner,
+          name: repo,
+        },
+      });
+      if (repository) {
+        await prisma.review.create({
+          data: {
+            repositoryId: repository.id,
+            prNumber,
+            prTitle: title,
+            prUrl: `https://github.com/${owner}/${repo}/pull/${prNumber}`,
+            review,
+            status: "completed",
+          },
+        });
+      }
+    });
+    return {success:true}
   }
 );
