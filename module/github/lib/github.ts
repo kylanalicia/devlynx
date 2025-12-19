@@ -222,6 +222,23 @@ export async function getPullRequestDiff(
   return {
     diff: diff as unknown as string,
     title: pr.title,
-    descripion: pr.body || "",
+    description: pr.body || "",
   }
+}
+
+export async function postReviewComment(
+  token: string,
+  owner: string,
+  repo: string,
+  prNumber: number,
+  review: string
+) {
+  const octokit = new Octokit({auth:token})
+
+  await octokit.rest.issues.createComment({
+    owner,
+    repo,
+    issue_number: prNumber,
+    body: `## 🤖 AI Code Review\n\n${review}\n\n---\n*Powered by DevLynx*`,
+  })
 }
