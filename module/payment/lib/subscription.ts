@@ -187,3 +187,15 @@ export async function updateUserTier(
         },
     });
 }
+
+export async function updatePolarCustomerId(
+    userId:string,
+    polarCustomerId:string
+):Promise<void>{
+    await prisma.user.update({
+        where:{id:userId},
+        data:{
+            polarCustomerId
+        }
+    })
+}
