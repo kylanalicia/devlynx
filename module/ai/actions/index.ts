@@ -10,8 +10,6 @@ export async function reviewPullRequest(
     prNumber: number
 ) {
     try {
-        
-
 
     const repository = await prisma.repository.findFirst({
         where: {
