@@ -16,6 +16,7 @@ export const auth = betterAuth({
             scope:["repo"]
         }
     },
+    trustedOrigins:["http://localhost:3000", "https://interlocular-karlee-superformidably.ngrok-free.dev"],
     plugins:[
         polar({
             client: polarClient,
@@ -24,11 +25,11 @@ export const auth = betterAuth({
                 checkout({
                     products: [
                         {
-                            productId: "ca65386a-b7ac-4461-9e4b-515f6d1baa9f",
-                            slug: "Devlynx" // Custom slug for easy reference in Checkout URL, e.g. /checkout/Devlynx
+                            productId: "f1b71126-90f6-4b41-bd87-a68463272691",
+                            slug: "devlynx-gotyou" // Custom slug for easy reference in Checkout URL, e.g. /checkout/devlynx-gotyou
                         }
                     ],
-                    successUrl: process.env.POLAR_SUCCESS_URL,
+                    successUrl: process.env.POLAR_SUCCESS_URL || "/dashboard/subscription?success=true",
                     authenticatedUsersOnly: true
                 }),
                 portal({
