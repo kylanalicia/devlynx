@@ -16,7 +16,7 @@ Devlynx is an AI‑powered code review and developer workflow assistant built wi
 ## 📸 Screenshots
 
 ### Inngest Server
-![Inngest Server Screenshot](./docs/images/inngest-server.png)
+![Inngest](https://github.com/kylanalicia/devlynx/blob/3727ce4b3bd8dfb8ef847948759dcfe785f13d24/Screenshot%20from%202025-12-22%2019-11-50.png)
 
 ### Website Preview
 *(Add a screenshot or webcam capture of the running site here)*  
