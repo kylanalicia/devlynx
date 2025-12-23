@@ -57,7 +57,7 @@ bunx prisma studio
 bun run dev
 ```
 
-📂 Project Structure
+## 📂 Project Structure
 app/api/ → Next.js  App Router API endpoints
 
 inngest/functions/ → Event‑driven workflows
@@ -68,7 +68,7 @@ module/ai/ → AI context + review generation
 
 prisma/schema.prisma → Database schema
 
-🌐 Tech Stack
+## 🌐 Tech Stack
 Runtime: Bun
 
 Database: Prisma
@@ -79,11 +79,11 @@ AI: Gemini via ai-sdk
 
 Frontend: Next.js  (App Router)
 
-📖 Description
+## 📖 Description
 Devlynx automates the code review process by combining AI‑powered analysis with event‑driven workflows. It listens for pull request events, retrieves context, generates reviews, and posts them back to GitHub — saving developers time and ensuring consistent, constructive feedback.
 
-🤝 Contributing
+## 🤝 Contributing
 Pull requests are welcome! Please open an issue first to discuss major changes.
 
-📜 License
+## 📜 License
 MIT © 2025 Alicia Kimani
