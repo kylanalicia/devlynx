@@ -27,7 +27,63 @@ Devlynx is an AI‑powered code review and developer workflow assistant built wi
 
 Clone the repository:
 
-```bash
+``` bash
 git clone https://github.com/kylanalicia/devlynx.git
 cd devlynx
+```
 
+# 📦 Install dependencies
+```
+bun install
+```
+
+# ⚡ Run the Inngest server
+```
+bun run inngest dev
+```
+
+# 🌐 Expose local server with ngrok
+```
+ngrok http 3000
+```
+
+# 🗄️ Open Prisma Studio
+```
+bunx prisma studio
+```
+
+# 💻 Run the website locally
+```
+bun run dev
+```
+
+📂 Project Structure
+app/api/ → Next.js  App Router API endpoints
+
+inngest/functions/ → Event‑driven workflows
+
+module/github/ → GitHub integration helpers
+
+module/ai/ → AI context + review generation
+
+prisma/schema.prisma → Database schema
+
+🌐 Tech Stack
+Runtime: Bun
+
+Database: Prisma
+
+Events: Inngest
+
+AI: Gemini via ai-sdk
+
+Frontend: Next.js  (App Router)
+
+📖 Description
+Devlynx automates the code review process by combining AI‑powered analysis with event‑driven workflows. It listens for pull request events, retrieves context, generates reviews, and posts them back to GitHub — saving developers time and ensuring consistent, constructive feedback.
+
+🤝 Contributing
+Pull requests are welcome! Please open an issue first to discuss major changes.
+
+📜 License
+MIT © 2025 Alicia Kimani
